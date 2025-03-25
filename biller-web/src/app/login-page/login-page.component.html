@@ -1,0 +1,20 @@
+<p>login-page works!</p>
+<form>
+    <div>
+        <label for="username">Username:</label>
+        <input [(ngModel)]="username" type="text" id="username" name="username" required>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input [(ngModel)]="password" type="password" id="password" name="password" required>
+    </div>
+    <div>
+        <label>
+            <input type="radio" name="userType" value="biller" (change)="onUserTypeChange($event)"> Biller
+        </label>
+        <label>
+            <input type="radio" name="userType" value="consumer" (change)="onUserTypeChange($event)"> Consumer
+        </label>
+    </div>
+    <button type="submit" (click)="onLogin()">Login</button>
+</form>
