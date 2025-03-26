@@ -1,18 +1,29 @@
 package com.current.electricbill;
 
-import javax.persistence.Entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="ELECTRIC_TABLE")
 public class ElectricEntity {
-
+	
+	@Id
+    @Column(name="SERIAL_NUMBER")
 	private int serialNumber;
 	
+    @Column(name="BILLED_UNITS")
 	private int billedUnits;
 	
+    @Column(name="METER_UNITS")
 	private int meterUnits;
 	
+    @Column(name="SUBSIDY_PERCENT")
 	private int subsidyPercent;
 	
+    @Column(name="LATEST_BILL")
 	private int latestBill;
 
 	

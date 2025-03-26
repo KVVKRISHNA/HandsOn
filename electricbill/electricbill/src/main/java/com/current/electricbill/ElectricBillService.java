@@ -1,7 +1,9 @@
 package com.current.electricbill;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ElectricBillService {
     
 	
@@ -11,7 +13,8 @@ public class ElectricBillService {
 	public double getElectricBill(int serialNumber) {
 		ElectricEntity electricObj = electricDataImpl.getElectricDetails(serialNumber);
 		if(electricObj.getMeterUnits() > electricObj.getBilledUnits()) {
-			return calculateBill(electricObj.getMeterUnits() - electricObj.getBilledUnits());
+			double bill =  calculateBill(electricObj.getMeterUnits() - electricObj.getBilledUnits());
+			return (bill - ((bill * electricObj.getSubsidyPercent())/100));
 		}else if (electricObj.getMeterUnits() == electricObj.getBilledUnits()){
 			return 0.0d;
 		}
